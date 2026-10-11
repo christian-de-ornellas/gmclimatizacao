@@ -36,7 +36,7 @@ const testimonials = [
 ];
 ---
 
-<section id="depoimentos" class="py-20 md:py-28 bg-surface">
+<section id="depoimentos" class="py-24 md:py-32 bg-surface-warm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <SectionHeading
       title="Quem já contratou, recomenda"
@@ -44,12 +44,14 @@ const testimonials = [
     />
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {testimonials.map((t) => (
-        <TestimonialCard
-          name={t.name}
-          text={t.text}
-          rating={t.rating}
-        />
+      {testimonials.map((t, i) => (
+        <div class={`sr sr-delay-${i + 1}`}>
+          <TestimonialCard
+            name={t.name}
+            text={t.text}
+            rating={t.rating}
+          />
+        </div>
       ))}
     </div>
   </div>

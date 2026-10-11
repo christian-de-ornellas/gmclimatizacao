@@ -8,9 +8,9 @@ interface Props {
 const { title, subtitle, light = false } = Astro.props;
 ---
 
-<div class="text-center mb-12">
+<div class="sr text-center mb-16">
   <h2 class:list={[
-    "font-heading text-3xl md:text-4xl font-bold mb-4",
+    "font-heading text-3xl md:text-4xl font-bold mb-4 tracking-tight",
     light ? "text-white" : "text-navy-900"
   ]}>
     {title}
@@ -18,10 +18,9 @@ const { title, subtitle, light = false } = Astro.props;
   {subtitle && (
     <p class:list={[
       "max-w-2xl mx-auto text-lg",
-      light ? "text-gray-300" : "text-gray-600"
+      light ? "text-gray-400" : "text-gray-500"
     ]}>
       {subtitle}
     </p>
   )}
-  <div class="w-16 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
 </div>

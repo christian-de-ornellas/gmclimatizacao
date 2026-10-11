@@ -46,20 +46,22 @@ const services = [
 ];
 ---
 
-<section id="servicos" class="py-20 md:py-28">
+<section id="servicos" class="py-24 md:py-32">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <SectionHeading
       title="O que fazemos"
       subtitle="Cada serviço segue um padrão técnico rigoroso. Do diagnóstico à entrega, nada é improvisado."
     />
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {services.map((service) => (
-        <ServiceCard
-          icon={service.icon}
-          title={service.title}
-          description={service.description}
-        />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+      {services.map((service, i) => (
+        <div class={`sr sr-delay-${i + 1}`}>
+          <ServiceCard
+            icon={service.icon}
+            title={service.title}
+            description={service.description}
+          />
+        </div>
       ))}
     </div>
   </div>
