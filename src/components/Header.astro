@@ -12,8 +12,8 @@ const navLinks = [
 <header id="header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
-      <a href="/" class="flex items-center">
-        <img src="/Logo.png" alt="GM Climatização" class="h-12 md:h-14 w-auto" />
+      <a href={import.meta.env.BASE_URL} class="flex items-center">
+        <img src={`${import.meta.env.BASE_URL}Logo.png`} alt="GM Climatização" class="h-12 md:h-14 w-auto" />
       </a>
 
       <nav class="hidden md:flex items-center gap-8">
@@ -29,7 +29,7 @@ const navLinks = [
 
       <div class="flex items-center gap-4">
         <a
-          href="https://wa.me/55XXXXXXXXXXX"
+          href="https://wa.me/5521966917054"
           target="_blank"
           rel="noopener noreferrer"
           class="hidden md:inline-flex items-center gap-2 bg-gold-500 text-navy-950 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-gold-400 transition-colors"
@@ -55,8 +55,8 @@ const navLinks = [
   <!-- Mobile menu -->
   <div id="mobile-menu" class="md:hidden fixed inset-0 bg-white z-50 translate-x-full transition-transform duration-300">
     <div class="flex items-center justify-between h-16 px-4">
-      <a href="/" class="flex items-center">
-        <img src="/Logo.png" alt="GM Climatização" class="h-16 w-auto" />
+      <a href={import.meta.env.BASE_URL} class="flex items-center">
+        <img src={`${import.meta.env.BASE_URL}Logo.png`} alt="GM Climatização" class="h-16 w-auto" />
       </a>
       <button id="menu-close" class="p-2" aria-label="Fechar menu">
         <svg class="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -74,7 +74,7 @@ const navLinks = [
         </a>
       ))}
       <a
-        href="https://wa.me/55XXXXXXXXXXX"
+        href="https://wa.me/5521966917054"
         target="_blank"
         rel="noopener noreferrer"
         class="mt-4 inline-flex items-center gap-2 bg-gold-500 text-navy-950 px-8 py-3 rounded-lg font-semibold hover:bg-gold-400 transition-colors"
