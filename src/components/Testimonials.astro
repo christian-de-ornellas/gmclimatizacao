@@ -2,45 +2,55 @@
 import SectionHeading from "./SectionHeading.astro";
 import TestimonialCard from "./TestimonialCard.astro";
 
-const testimonials = [
-  {
-    name: "Carlos Mendonça",
-    text: "Tive dois orçamentos antes da GM. Os outros queriam instalar um 12.000 BTUs na minha sala de 40m². A GM fez o cálculo de carga térmica e recomendou um 18.000. Diferença absurda no conforto — e só eles explicaram o motivo.",
-    rating: 5,
-  },
-  {
-    name: "Ana Paula Soares",
-    text: "Gerencio uma clínica com 14 aparelhos. A GM assumiu o PMOC e a manutenção preventiva trimestral. Em oito meses, nenhuma parada não programada. Antes, era uma dor de cabeça por mês.",
-    rating: 5,
-  },
-  {
-    name: "Roberto Lima",
-    text: "Precisei trocar todo o sistema VRF do escritório em plena operação. A equipe trabalhou em horário alternativo para não parar nossas atividades. Entregaram no prazo combinado, sem um dia de atraso.",
-    rating: 5,
-  },
-  {
-    name: "Mariana Fonseca",
-    text: "Terceiro projeto com a GM — primeiro meu apartamento, depois o consultório, agora a casa nova. Quando você encontra um time que faz direito, não tem por que trocar.",
-    rating: 5,
-  },
-  {
-    name: "Pedro Henrique Castro",
-    text: "Climatizaram meu escritório de 120m² com multi split. A conta de luz ficou 30% menor que o sistema antigo de janela. O projeto se pagou em poucos meses.",
-    rating: 5,
-  },
-  {
-    name: "Lúcia Ribeiro",
-    text: "O que mais me impressionou foi a organização. Recebemos um cronograma antes do início, fotos do progresso e uma vistoria final detalhada. Não é o padrão que estamos acostumados no Brasil.",
-    rating: 5,
-  },
-];
+interface Props {
+  testimonials?: { name: string; text: string; rating: number }[];
+  headingTitle?: string;
+  headingSubtitle?: string;
+}
+
+const {
+  testimonials = [
+    {
+      name: "Carlos Mendonça",
+      text: "Tive dois orçamentos antes da GM. Os outros queriam instalar um 12.000 BTUs na minha sala de 40m². A GM fez o cálculo de carga térmica e recomendou um 18.000. Diferença absurda no conforto — e só eles explicaram o motivo.",
+      rating: 5,
+    },
+    {
+      name: "Ana Paula Soares",
+      text: "Gerencio uma clínica com 14 aparelhos. A GM assumiu o PMOC e a manutenção preventiva trimestral. Em oito meses, nenhuma parada não programada. Antes, era uma dor de cabeça por mês.",
+      rating: 5,
+    },
+    {
+      name: "Roberto Lima",
+      text: "Precisei trocar todo o sistema VRF do escritório em plena operação. A equipe trabalhou em horário alternativo para não parar nossas atividades. Entregaram no prazo combinado, sem um dia de atraso.",
+      rating: 5,
+    },
+    {
+      name: "Mariana Fonseca",
+      text: "Terceiro projeto com a GM — primeiro meu apartamento, depois o consultório, agora a casa nova. Quando você encontra um time que faz direito, não tem por que trocar.",
+      rating: 5,
+    },
+    {
+      name: "Pedro Henrique Castro",
+      text: "Climatizaram meu escritório de 120m² com multi split. A conta de luz ficou 30% menor que o sistema antigo de janela. O projeto se pagou em poucos meses.",
+      rating: 5,
+    },
+    {
+      name: "Lúcia Ribeiro",
+      text: "O que mais me impressionou foi a organização. Recebemos um cronograma antes do início, fotos do progresso e uma vistoria final detalhada. Não é o padrão que estamos acostumados no Brasil.",
+      rating: 5,
+    },
+  ],
+  headingTitle = "Quem já contratou, recomenda",
+  headingSubtitle = "Histórias reais de clientes que confiaram no nosso trabalho.",
+} = Astro.props;
 ---
 
 <section id="depoimentos" class="py-24 md:py-32 bg-surface-warm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <SectionHeading
-      title="Quem já contratou, recomenda"
-      subtitle="Histórias reais de clientes que confiaram no nosso trabalho."
+      title={headingTitle}
+      subtitle={headingSubtitle}
     />
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,0 +1,199 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import Rappel from "../components/Rappel.astro";
+import Brands from "../components/Brands.astro";
+import About from "../components/About.astro";
+import Differentials from "../components/Differentials.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Gallery from "../components/Gallery.astro";
+import FAQ from "../components/FAQ.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+
+const whatsappBase = "https://wa.me/5521966917054";
+const whatsappMsg = encodeURIComponent("Olá! Tenho interesse em climatização para meu apartamento. Gostaria de solicitar um orçamento.");
+const whatsappLink = `${whatsappBase}?text=${whatsappMsg}`;
+
+const services = [
+  {
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085" /></svg>',
+    title: "Instalação premium",
+    description: "Instalação com acabamento impecável para apartamentos de alto padrão. Posicionamento estratégico, vedação perfeita e carga de gás calibrada — sem marcas nas paredes, sem improvisação.",
+  },
+  {
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" /></svg>',
+    title: "Projetos sob medida",
+    description: "Calculamos a carga térmica considerando orientação solar, pé-direito, vidros e ocupação. Cada ambiente recebe a especificação exata para conforto uniforme e consumo otimizado.",
+  },
+  {
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>',
+    title: "Multi Split e VRF",
+    description: "Uma única condensadora na varanda técnica, múltiplas evaporadoras nos cômodos. Controle independente de temperatura em cada ambiente sem poluição visual na fachada.",
+  },
+  {
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>',
+    title: "Infraestrutura",
+    description: "Tubulação, dreno, elétrica e suportes dimensionados antes do equipamento chegar. Trabalho integrado com o acabamento do seu apartamento, sem retrabalho e sem sujeira.",
+  },
+  {
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>',
+    title: "Higienização",
+    description: "Limpeza profunda que elimina fungos, bactérias e ácaros acumulados. Ar mais saudável para sua família, especialmente para quem tem crianças ou alergias respiratórias.",
+  },
+  {
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>',
+    title: "Consultoria técnica",
+    description: "Antes de investir, entenda. Analisamos seu apartamento, calculamos a necessidade térmica e indicamos a melhor solução — sem compromisso e sem visita desnecessária.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Carlos Mendonça",
+    text: "Tive dois orçamentos antes da GM. Os outros queriam instalar um 12.000 BTUs na minha sala de 40m². A GM fez o cálculo de carga térmica e recomendou um 18.000. Diferença absurda no conforto — e só eles explicaram o motivo.",
+    rating: 5,
+  },
+  {
+    name: "Mariana Fonseca",
+    text: "Terceiro projeto com a GM — primeiro meu apartamento, depois o consultório, agora a casa nova. Quando você encontra um time que faz direito, não tem por que trocar.",
+    rating: 5,
+  },
+  {
+    name: "Lúcia Ribeiro",
+    text: "O que mais me impressionou foi a organização. Recebemos um cronograma antes do início, fotos do progresso e uma vistoria final detalhada. Não é o padrão que estamos acostumados no Brasil.",
+    rating: 5,
+  },
+];
+
+const projects = [
+  { title: "Apartamento Alto Padrão — Barra", gradient: "from-navy-700 to-navy-500" },
+  { title: "Cobertura Duplex — Leblon", gradient: "from-navy-900 to-navy-700" },
+  { title: "Apartamento — Ipanema", gradient: "from-navy-500 to-gold-600" },
+  { title: "Penthouse — Jardim Botânico", gradient: "from-navy-700 to-navy-900" },
+  { title: "Apartamento — Recreio", gradient: "from-gold-600 to-navy-700" },
+  { title: "Loft — Centro", gradient: "from-navy-900 to-navy-500" },
+];
+
+const faqs = [
+  {
+    question: "Como sei qual equipamento é o certo para o meu apartamento?",
+    answer: "Depende da metragem, pé-direito, orientação solar, quantidade de janelas e até do tipo de revestimento. Não existe resposta genérica. Fazemos o cálculo de carga térmica tecnicamente — e a consultoria inicial é gratuita.",
+  },
+  {
+    question: "Quanto tempo leva a instalação?",
+    answer: "Para um split com infraestrutura pronta, de 2 a 4 horas. Se for necessário passar tubulação, dreno ou elétrica, pode levar um dia completo. Informamos o prazo exato no orçamento e respeitamos os horários do condomínio.",
+  },
+  {
+    question: "A instalação faz muita sujeira no apartamento?",
+    answer: "Trabalhamos com proteção completa de pisos e móveis. Usamos aspirador industrial durante a obra e fazemos limpeza ao final. Seu apartamento fica como estava antes — só que climatizado.",
+  },
+  {
+    question: "Multi split ou splits individuais — qual é melhor?",
+    answer: "Multi split economiza espaço na varanda técnica e é ideal quando há vários cômodos para climatizar. Splits individuais são mais simples de manter. Recomendamos a melhor opção após avaliar seu apartamento.",
+  },
+  {
+    question: "Qual é a garantia do serviço?",
+    answer: "Emitimos termo de garantia para cada serviço. A instalação possui garantia sobre a mão de obra, e o equipamento mantém a garantia de fábrica — desde que instalado por profissional autorizado, como é o nosso caso.",
+  },
+  {
+    question: "Vocês fazem manutenção após a instalação?",
+    answer: "Sim. Recomendamos manutenção preventiva a cada 6 meses para residências. Após a instalação, você continua tendo acesso direto ao nosso time para agendamentos, dúvidas e ajustes.",
+  },
+];
+
+const differentials = [
+  {
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>',
+    title: "Técnicos certificados",
+    description: "Equipe com certificação direta de Daikin, LG, Samsung e Carrier. Treinamento exclusivo e domínio técnico que vai além do básico.",
+  },
+  {
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>',
+    title: "Orçamento em até 24h",
+    description: "Envie as informações do seu apartamento e receba uma proposta detalhada. Sem enrolação, sem visita desnecessária para casos simples.",
+  },
+  {
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>',
+    title: "Garantia documentada",
+    description: "Termo de garantia em cada serviço com prazos, cobertura e condições claras. Sem letras miúdas, sem ambiguidade.",
+  },
+  {
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>',
+    title: "Orçamento sem surpresas",
+    description: "O valor aprovado é o valor da nota. Detalhamos materiais, mão de obra e prazos antes de iniciar — sem custos ocultos.",
+  },
+  {
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>',
+    title: "Respeito ao acabamento",
+    description: "Proteção de pisos, móveis e paredes durante toda a obra. Seu apartamento fica como estava — só que com conforto térmico de primeiro nível.",
+  },
+  {
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg>',
+    title: "Relacionamento contínuo",
+    description: "Após a entrega, você continua com acesso direto ao nosso time técnico. Dúvidas, ajustes e manutenções — estamos a uma mensagem de distância.",
+  },
+];
+---
+
+<Layout
+  title="GM Climatização — Climatização para Apartamentos de Alto Padrão"
+  description="Instalação premium de ar condicionado para apartamentos de alto padrão no Rio de Janeiro. Projetos sob medida, Multi Split, VRF e manutenção com garantia documentada."
+>
+  <Header />
+  <main>
+    <Hero
+      badge="Climatização premium para apartamentos de alto padrão"
+      headlineParts={{
+        before: "O conforto que seu apartamento",
+        gold1: " merece,",
+        middle: " com a engenharia que ele",
+        gold2: " exige",
+      }}
+      subtitle="Projetos de climatização pensados para cada metro quadrado do seu apartamento. Da escolha do equipamento à manutenção contínua, cuidamos de tudo para que você só perceba uma coisa: o conforto."
+      ctaLink={whatsappLink}
+      ctaText="Solicitar orçamento"
+      secondaryCtaText="Conheça nosso trabalho"
+      secondaryCtaHref="#servicos"
+      stats={[
+        { value: "+300", label: "apartamentos climatizados" },
+        { value: "+10", label: "anos em alto padrão" },
+        { value: "5.0", label: "no Google" },
+      ]}
+    />
+    <Services
+      services={services}
+      headingTitle="Soluções para seu apartamento"
+      headingSubtitle="Cada serviço é pensado para o contexto residencial de alto padrão. Do diagnóstico à entrega, nada é improvisado."
+    />
+    <Rappel />
+    <Brands />
+    <About />
+    <Differentials
+      differentials={differentials}
+      headingTitle="Por que confiar na GM"
+      headingSubtitle="Climatização é engenharia, não improviso. Veja como trabalhamos no seu apartamento."
+    />
+    <Testimonials
+      testimonials={testimonials}
+      headingTitle="Quem já instalou, recomenda"
+      headingSubtitle="Histórias reais de moradores que confiaram no nosso trabalho."
+    />
+    <Gallery
+      projects={projects}
+      headingTitle="Apartamentos que climatizamos"
+      headingSubtitle="Projetos residenciais de alto padrão entregues pela nossa equipe."
+    />
+    <FAQ
+      faqs={faqs}
+      headingTitle="Dúvidas sobre climatização residencial"
+      headingSubtitle="As perguntas que mais recebemos de moradores — respondidas com transparência."
+    />
+    <Contact />
+  </main>
+  <Footer />
+  <WhatsAppButton href={whatsappLink} />
+</Layout>

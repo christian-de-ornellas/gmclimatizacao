@@ -13,6 +13,9 @@ import FAQ from "../components/FAQ.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout>
@@ -21,6 +24,60 @@ import WhatsAppButton from "../components/WhatsAppButton.astro";
     <Hero />
     <Services />
     <Rappel />
+
+    <!-- Soluções especializadas -->
+    <section class="py-24 md:py-32 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          title="Soluções para cada perfil"
+          subtitle="Atendemos residências de alto padrão e empresas com a mesma excelência técnica. Explore a solução ideal para você."
+          light
+        />
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <!-- Residencial -->
+          <a
+            href={`${base}residencial/`}
+            class="sr sr-delay-1 group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 hover:border-gold-500/30 hover:bg-white/[0.05] transition-all duration-500"
+          >
+            <div class="text-gold-400 mb-5">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+              </svg>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white mb-2">Residencial</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              Climatização premium para apartamentos de alto padrão. Instalação com acabamento impecável, projetos sob medida e manutenção contínua.
+            </p>
+            <span class="inline-flex items-center gap-1 text-gold-400 text-sm font-semibold group-hover:gap-2 transition-all duration-300">
+              Ver soluções residenciais
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </span>
+          </a>
+
+          <!-- Comercial -->
+          <a
+            href={`${base}comercial/`}
+            class="sr sr-delay-2 group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 hover:border-gold-500/30 hover:bg-white/[0.05] transition-all duration-500"
+          >
+            <div class="text-gold-400 mb-5">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
+              </svg>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white mb-2">Comercial</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              Contratos de manutenção para empresas que não param. PMOC, SLA de atendimento, relatórios técnicos e custo previsível.
+            </p>
+            <span class="inline-flex items-center gap-1 text-gold-400 text-sm font-semibold group-hover:gap-2 transition-all duration-300">
+              Ver soluções comerciais
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <Brands />
     <About />
     <Differentials />

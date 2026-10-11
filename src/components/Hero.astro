@@ -1,3 +1,36 @@
+---
+interface Props {
+  badge?: string;
+  headlineParts?: { before: string; gold1: string; middle: string; gold2: string };
+  subtitle?: string;
+  ctaLink?: string;
+  ctaText?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  stats?: { value: string; label: string }[];
+}
+
+const {
+  badge = "Referência em climatização profissional",
+  headlineParts = {
+    before: "O ambiente que você",
+    gold1: " merece,",
+    middle: " com a engenharia que ele",
+    gold2: " exige",
+  },
+  subtitle = "Projetos de climatização pensados para cada metro quadrado. Da escolha do equipamento à manutenção contínua, cuidamos de tudo para que você só perceba uma coisa: o conforto.",
+  ctaLink = "https://wa.me/5521966917054",
+  ctaText = "Solicitar orçamento",
+  secondaryCtaText = "Conheça nosso trabalho",
+  secondaryCtaHref = "#servicos",
+  stats = [
+    { value: "+10", label: "anos no mercado" },
+    { value: "+500", label: "ambientes climatizados" },
+    { value: "+1000", label: "instalações concluídas" },
+  ],
+} = Astro.props;
+---
+
 <section class="relative min-h-screen flex items-center bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 overflow-hidden">
   <!-- Background pattern -->
   <div class="absolute inset-0 opacity-[0.03]">
@@ -29,37 +62,37 @@
       <!-- Badge -->
       <div class="inline-flex items-center gap-2 bg-white/[0.06] backdrop-blur-md border border-white/20 rounded-lg px-4 py-2 mb-6" style="animation: reveal 0.6s ease-out both;">
         <span class="w-4 h-[2px] bg-gold-400"></span>
-        <span class="text-white/90 text-sm font-medium">Referência em climatização profissional</span>
+        <span class="text-white/90 text-sm font-medium">{badge}</span>
       </div>
 
       <!-- Headline -->
       <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-8" style="animation: reveal 0.6s ease-out 0.1s both;">
-        O ambiente que você
-        <span class="text-gold-400"> merece,</span> com a engenharia que ele
-        <span class="text-gold-400"> exige</span>
+        {headlineParts.before}
+        <span class="text-gold-400">{headlineParts.gold1}</span>{headlineParts.middle}
+        <span class="text-gold-400">{headlineParts.gold2}</span>
       </h1>
 
       <!-- Subtitle -->
       <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed" style="animation: reveal 0.6s ease-out 0.2s both;">
-        Projetos de climatização pensados para cada metro quadrado. Da escolha do equipamento à manutenção contínua, cuidamos de tudo para que você só perceba uma coisa: o conforto.
+        {subtitle}
       </p>
 
       <!-- CTAs -->
       <div class="flex flex-col sm:flex-row gap-4 mb-16" style="animation: reveal 0.6s ease-out 0.3s both;">
         <a
-          href="https://wa.me/5521966917054"
+          href={ctaLink}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center gap-2 bg-gold-500 text-navy-950 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gold-400 transition-colors shadow-[0_20px_60px_rgba(212,160,40,0.25)]"
         >
           <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Solicitar orçamento
+          {ctaText}
         </a>
         <a
-          href="#servicos"
+          href={secondaryCtaHref}
           class="inline-flex items-center justify-center gap-2 border border-white/20 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/[0.06] transition-colors"
         >
-          Conheça nosso trabalho
+          {secondaryCtaText}
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
         </a>
       </div>
@@ -67,18 +100,12 @@
       <!-- Stats -->
       <div class="border-t border-white/10 pt-8">
         <div class="grid grid-cols-3 gap-8 max-w-md" style="animation: reveal 0.6s ease-out 0.4s both;">
-          <div>
-            <div class="font-heading text-3xl md:text-4xl font-bold text-gold-400">+10</div>
-            <div class="text-sm text-gray-400 mt-1">anos no mercado</div>
-          </div>
-          <div>
-            <div class="font-heading text-3xl md:text-4xl font-bold text-gold-400">+500</div>
-            <div class="text-sm text-gray-400 mt-1">ambientes climatizados</div>
-          </div>
-          <div>
-            <div class="font-heading text-3xl md:text-4xl font-bold text-gold-400">+1000</div>
-            <div class="text-sm text-gray-400 mt-1">instalações concluídas</div>
-          </div>
+          {stats.map((stat) => (
+            <div>
+              <div class="font-heading text-3xl md:text-4xl font-bold text-gold-400">{stat.value}</div>
+              <div class="text-sm text-gray-400 mt-1">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

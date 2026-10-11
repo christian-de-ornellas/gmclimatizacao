@@ -1,39 +1,49 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
 
-const faqs = [
-  {
-    question: "De quanto em quanto tempo preciso fazer manutenção?",
-    answer: "Para residências, a cada 6 meses. Para ambientes comerciais com uso intenso, a cada 3 meses. Já a limpeza dos filtros deve ser mensal — é algo que você mesmo pode fazer. A manutenção preventiva evita quebras inesperadas e mantém o consumo de energia no nível projetado.",
-  },
-  {
-    question: "Como saber qual ar condicionado é o certo para o meu espaço?",
-    answer: "Não existe resposta genérica. Depende da metragem, pé-direito, quantidade de pessoas, orientação solar, equipamentos eletrônicos no ambiente e até do tipo de revestimento das paredes. Fazemos esse cálculo tecnicamente — e a consultoria inicial é gratuita.",
-  },
-  {
-    question: "Vocês atendem em qual região?",
-    answer: "Toda a região metropolitana. Para localidades mais distantes, avaliamos caso a caso. Envie sua localização pelo WhatsApp e confirmamos a disponibilidade e agendamos a visita.",
-  },
-  {
-    question: "Quanto tempo leva uma instalação de split?",
-    answer: "Em média, de 2 a 4 horas para uma instalação padrão com infraestrutura pronta. Se for necessário passar tubulação, dreno ou elétrica, pode levar um dia completo. Informamos o prazo exato no orçamento.",
-  },
-  {
-    question: "Qual é a garantia do serviço?",
-    answer: "Emitimos termo de garantia para cada serviço realizado. A instalação possui garantia sobre a mão de obra, e o equipamento mantém a garantia de fábrica — desde que instalado por profissional autorizado, como é o nosso caso.",
-  },
-  {
-    question: "O que é PMOC e quando ele é obrigatório?",
-    answer: "PMOC é o Plano de Manutenção, Operação e Controle, exigido por lei (Portaria 3.523/98 e Resolução ANVISA RE-09) para ambientes com sistemas de climatização acima de 5 TR. Sem ele, seu estabelecimento está sujeito a multas, interdições e processos sanitários.",
-  },
-];
+interface Props {
+  faqs?: { question: string; answer: string }[];
+  headingTitle?: string;
+  headingSubtitle?: string;
+}
+
+const {
+  faqs = [
+    {
+      question: "De quanto em quanto tempo preciso fazer manutenção?",
+      answer: "Para residências, a cada 6 meses. Para ambientes comerciais com uso intenso, a cada 3 meses. Já a limpeza dos filtros deve ser mensal — é algo que você mesmo pode fazer. A manutenção preventiva evita quebras inesperadas e mantém o consumo de energia no nível projetado.",
+    },
+    {
+      question: "Como saber qual ar condicionado é o certo para o meu espaço?",
+      answer: "Não existe resposta genérica. Depende da metragem, pé-direito, quantidade de pessoas, orientação solar, equipamentos eletrônicos no ambiente e até do tipo de revestimento das paredes. Fazemos esse cálculo tecnicamente — e a consultoria inicial é gratuita.",
+    },
+    {
+      question: "Vocês atendem em qual região?",
+      answer: "Toda a região metropolitana. Para localidades mais distantes, avaliamos caso a caso. Envie sua localização pelo WhatsApp e confirmamos a disponibilidade e agendamos a visita.",
+    },
+    {
+      question: "Quanto tempo leva uma instalação de split?",
+      answer: "Em média, de 2 a 4 horas para uma instalação padrão com infraestrutura pronta. Se for necessário passar tubulação, dreno ou elétrica, pode levar um dia completo. Informamos o prazo exato no orçamento.",
+    },
+    {
+      question: "Qual é a garantia do serviço?",
+      answer: "Emitimos termo de garantia para cada serviço realizado. A instalação possui garantia sobre a mão de obra, e o equipamento mantém a garantia de fábrica — desde que instalado por profissional autorizado, como é o nosso caso.",
+    },
+    {
+      question: "O que é PMOC e quando ele é obrigatório?",
+      answer: "PMOC é o Plano de Manutenção, Operação e Controle, exigido por lei (Portaria 3.523/98 e Resolução ANVISA RE-09) para ambientes com sistemas de climatização acima de 5 TR. Sem ele, seu estabelecimento está sujeito a multas, interdições e processos sanitários.",
+    },
+  ],
+  headingTitle = "Dúvidas frequentes",
+  headingSubtitle = "As perguntas que mais recebemos — respondidas com transparência.",
+} = Astro.props;
 ---
 
 <section id="faq" class="py-24 md:py-32 bg-surface">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <SectionHeading
-      title="Dúvidas frequentes"
-      subtitle="As perguntas que mais recebemos — respondidas com transparência."
+      title={headingTitle}
+      subtitle={headingSubtitle}
     />
 
     <div class="max-w-3xl mx-auto space-y-4">

@@ -1,21 +1,31 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
 
-const projects = [
-  { title: "Apartamento Alto Padrão", gradient: "from-navy-700 to-navy-500" },
-  { title: "Andar Corporativo", gradient: "from-navy-900 to-navy-700" },
-  { title: "Loja em Shopping", gradient: "from-navy-500 to-gold-600" },
-  { title: "Clínica Odontológica", gradient: "from-navy-700 to-navy-900" },
-  { title: "Restaurante Gourmet", gradient: "from-gold-600 to-navy-700" },
-  { title: "Coworking", gradient: "from-navy-900 to-navy-500" },
-];
+interface Props {
+  projects?: { title: string; gradient: string }[];
+  headingTitle?: string;
+  headingSubtitle?: string;
+}
+
+const {
+  projects = [
+    { title: "Apartamento Alto Padrão", gradient: "from-navy-700 to-navy-500" },
+    { title: "Andar Corporativo", gradient: "from-navy-900 to-navy-700" },
+    { title: "Loja em Shopping", gradient: "from-navy-500 to-gold-600" },
+    { title: "Clínica Odontológica", gradient: "from-navy-700 to-navy-900" },
+    { title: "Restaurante Gourmet", gradient: "from-gold-600 to-navy-700" },
+    { title: "Coworking", gradient: "from-navy-900 to-navy-500" },
+  ],
+  headingTitle = "Projetos entregues",
+  headingSubtitle = "Ambientes onde a climatização foi projetada, instalada e validada pela nossa equipe.",
+} = Astro.props;
 ---
 
 <section id="galeria" class="py-24 md:py-32">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <SectionHeading
-      title="Projetos entregues"
-      subtitle="Ambientes onde a climatização foi projetada, instalada e validada pela nossa equipe."
+      title={headingTitle}
+      subtitle={headingSubtitle}
     />
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
