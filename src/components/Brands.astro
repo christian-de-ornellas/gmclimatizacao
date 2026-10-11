@@ -4,20 +4,20 @@ const brands = [
 ];
 ---
 
-<section class="py-16 bg-surface overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-    <p class="sr text-center text-gray-400 text-sm font-medium uppercase tracking-wider">Certificados e autorizados pelas principais fabricantes</p>
+<section class="py-10 sm:py-16 bg-surface overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8">
+    <p class="sr text-center text-gray-400 text-xs sm:text-sm font-medium uppercase tracking-wider">Certificados e autorizados pelas principais fabricantes</p>
   </div>
 
   <div class="relative">
     <!-- Fade edges -->
-    <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-surface to-transparent z-10"></div>
-    <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-surface to-transparent z-10"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-surface to-transparent z-10"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-l from-surface to-transparent z-10"></div>
 
     <div class="flex" style="animation: marquee 30s linear infinite; width: max-content;">
       {[...brands, ...brands].map((brand) => (
-        <div class="flex-shrink-0 mx-8 md:mx-12 flex items-center justify-center h-16 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-          <span class="font-heading text-xl md:text-2xl font-semibold text-navy-700/80 select-none">{brand}</span>
+        <div class="flex-shrink-0 mx-5 sm:mx-8 md:mx-12 flex items-center justify-center h-12 sm:h-16 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+          <span class="font-heading text-lg sm:text-xl md:text-2xl font-semibold text-navy-700/80 select-none">{brand}</span>
         </div>
       ))}
     </div>
