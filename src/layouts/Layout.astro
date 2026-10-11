@@ -1,4 +1,6 @@
 ---
+import CookieConsent from "../components/CookieConsent.astro";
+
 interface Props {
   title?: string;
   description?: string;
@@ -35,6 +37,7 @@ const {
   </head>
   <body class="bg-white text-navy-900 antialiased">
     <slot />
+    <CookieConsent />
 
     <script>
       const observer = new IntersectionObserver(

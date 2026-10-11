@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+---
+
+<Layout
+  title="Termos de Uso — GM Climatização"
+  description="Termos de uso do site da GM Climatização. Conheça as condições de utilização do nosso site e serviços."
+>
+  <Header />
+  <main class="pt-28 pb-16 sm:pt-32 sm:pb-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="font-heading text-3xl sm:text-4xl font-bold text-navy-950 mb-8">Termos de Uso</h1>
+
+      <div class="prose prose-lg max-w-none text-navy-900/80 space-y-6 [&_h2]:font-heading [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-navy-950 [&_h2]:mt-10 [&_h2]:mb-4 [&_p]:leading-relaxed [&_ul]:space-y-2 [&_li]:leading-relaxed">
+        <p>
+          Ao acessar e utilizar o site da <strong>GM Climatização</strong>, você concorda com os termos e condições descritos abaixo. Caso não concorde com algum dos termos, recomendamos que não utilize o site.
+        </p>
+
+        <h2>1. Sobre o site</h2>
+        <p>
+          Este site tem como objetivo apresentar os serviços de climatização oferecidos pela GM Climatização, facilitar o contato com potenciais clientes e fornecer informações relevantes sobre o setor.
+        </p>
+
+        <h2>2. Uso do site</h2>
+        <p>Ao utilizar nosso site, você se compromete a:</p>
+        <ul class="list-disc pl-6">
+          <li>Utilizar o site de forma lícita e em conformidade com a legislação brasileira.</li>
+          <li>Não tentar acessar áreas restritas, interferir no funcionamento do site ou utilizar mecanismos automatizados não autorizados.</li>
+          <li>Fornecer informações verdadeiras e atualizadas ao entrar em contato conosco.</li>
+        </ul>
+
+        <h2>3. Propriedade intelectual</h2>
+        <p>
+          Todo o conteúdo do site — incluindo textos, imagens, logotipos, design e código-fonte — é de propriedade da GM Climatização ou licenciado para nosso uso. A reprodução, distribuição ou modificação sem autorização prévia é proibida.
+        </p>
+
+        <h2>4. Informações e orçamentos</h2>
+        <p>
+          As informações apresentadas no site, incluindo descrições de serviços e diferenciais, têm caráter informativo. Valores, prazos e condições específicas são definidos exclusivamente no orçamento formal enviado ao cliente.
+        </p>
+
+        <h2>5. Links externos</h2>
+        <p>
+          O site pode conter links para serviços de terceiros (como WhatsApp e redes sociais). Não nos responsabilizamos pelo conteúdo, políticas de privacidade ou práticas desses serviços.
+        </p>
+
+        <h2>6. Limitação de responsabilidade</h2>
+        <p>
+          Embora nos esforcemos para manter as informações do site precisas e atualizadas, não garantimos que o conteúdo esteja livre de erros ou interrupções. O uso do site é por sua conta e risco.
+        </p>
+
+        <h2>7. Privacidade</h2>
+        <p>
+          O tratamento dos seus dados pessoais é regido pela nossa <a href={`${import.meta.env.BASE_URL}politica-de-privacidade/`} class="text-gold-600 hover:text-gold-500 underline underline-offset-2">Política de Privacidade</a>. Ao utilizar o site, você declara estar ciente dos termos dessa política.
+        </p>
+
+        <h2>8. Alterações</h2>
+        <p>
+          Reservamo-nos o direito de alterar estes Termos de Uso a qualquer momento, sem aviso prévio. As alterações entram em vigor imediatamente após a publicação nesta página.
+        </p>
+
+        <h2>9. Legislação aplicável</h2>
+        <p>
+          Estes Termos de Uso são regidos pela legislação brasileira. Qualquer disputa será resolvida no foro da Comarca do Rio de Janeiro — RJ.
+        </p>
+
+        <h2>10. Contato</h2>
+        <p>
+          Em caso de dúvidas sobre estes Termos de Uso, entre em contato:
+        </p>
+        <ul class="list-none pl-0">
+          <li><strong>GM Climatização</strong></li>
+          <li>E-mail: <a href="mailto:contato@gmclimatizacao.com.br" class="text-gold-600 hover:text-gold-500 underline underline-offset-2">contato@gmclimatizacao.com.br</a></li>
+          <li>Telefone: (21) 96691-7054</li>
+          <li>Localização: Rio de Janeiro — RJ</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <Footer />
+  <WhatsAppButton />
+</Layout>

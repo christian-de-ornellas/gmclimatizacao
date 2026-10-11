@@ -1,0 +1,80 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<div
+  id="cookie-consent"
+  class="fixed bottom-0 left-0 right-0 z-50 translate-y-full transition-transform duration-500 ease-out"
+  role="dialog"
+  aria-label="Consentimento de cookies"
+>
+  <div class="bg-navy-950/95 backdrop-blur-md border-t border-white/10 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+        <div class="flex items-start gap-3 flex-1">
+          <svg class="w-6 h-6 text-gold-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+          </svg>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            Utilizamos cookies para melhorar sua experiência de navegação e analisar o tráfego do site. Ao continuar navegando, você concorda com o uso de cookies conforme nossa
+            <a href={`${base}politica-de-cookies/`} class="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">Política de Cookies</a> e
+            <a href={`${base}politica-de-privacidade/`} class="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">Política de Privacidade</a>.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 w-full sm:w-auto flex-shrink-0">
+          <button
+            id="cookie-reject"
+            type="button"
+            class="flex-1 sm:flex-none px-5 py-2.5 text-sm font-medium text-gray-400 border border-white/10 rounded-lg hover:bg-white/5 hover:text-white transition-colors cursor-pointer"
+          >
+            Rejeitar
+          </button>
+          <button
+            id="cookie-accept"
+            type="button"
+            class="flex-1 sm:flex-none px-5 py-2.5 text-sm font-medium text-navy-950 bg-gold-400 rounded-lg hover:bg-gold-300 transition-colors cursor-pointer"
+          >
+            Aceitar cookies
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initCookieConsent() {
+    const banner = document.getElementById('cookie-consent');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const rejectBtn = document.getElementById('cookie-reject');
+
+    if (!banner || !acceptBtn || !rejectBtn) return;
+
+    const consent = localStorage.getItem('gm-cookie-consent');
+
+    if (!consent) {
+      requestAnimationFrame(() => {
+        banner.classList.remove('translate-y-full');
+        banner.classList.add('translate-y-0');
+      });
+    }
+
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('gm-cookie-consent', 'accepted');
+      closeBanner();
+    });
+
+    rejectBtn.addEventListener('click', () => {
+      localStorage.setItem('gm-cookie-consent', 'rejected');
+      closeBanner();
+    });
+
+    function closeBanner() {
+      banner.classList.remove('translate-y-0');
+      banner.classList.add('translate-y-full');
+    }
+  }
+
+  initCookieConsent();
+  document.addEventListener('astro:after-swap', initCookieConsent);
+</script>

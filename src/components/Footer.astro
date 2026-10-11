@@ -1,10 +1,15 @@
+---
+const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
+---
+
 <footer class="bg-navy-950 text-white pt-14 sm:pt-20 pb-8 sm:pb-10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-12 mb-10 sm:mb-12">
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-12 mb-10 sm:mb-12">
       <!-- Logo & tagline -->
       <div class="sr sr-delay-1">
-        <a href={import.meta.env.BASE_URL} class="flex items-center mb-4">
-          <img src={`${import.meta.env.BASE_URL}Logo.png`} alt="GM Climatização" class="h-20 w-auto brightness-0 invert" />
+        <a href={base} class="flex items-center mb-4">
+          <img src={`${base}Logo.png`} alt="GM Climatização" class="h-20 w-auto brightness-0 invert" />
         </a>
         <p class="text-gray-400 leading-relaxed">
           Projetos de climatização com engenharia, transparência e compromisso técnico. Do dimensionamento à manutenção contínua.
@@ -42,11 +47,22 @@
           </p>
         </div>
       </div>
+
+      <!-- Legal / LGPD -->
+      <div class="sr sr-delay-4">
+        <h4 class="font-heading font-semibold text-lg mb-4">Legal</h4>
+        <nav class="space-y-3">
+          <a href={`${base}politica-de-privacidade/`} class="block text-gray-400 hover:text-gold-400 transition-colors">Política de Privacidade</a>
+          <a href={`${base}politica-de-cookies/`} class="block text-gray-400 hover:text-gold-400 transition-colors">Política de Cookies</a>
+          <a href={`${base}termos-de-uso/`} class="block text-gray-400 hover:text-gold-400 transition-colors">Termos de Uso</a>
+        </nav>
+      </div>
     </div>
 
     <!-- Bottom bar -->
-    <div class="border-t border-white/10 pt-8 text-center text-sm text-gray-500">
-      <p>&copy; 2025 GM Climatização. Todos os direitos reservados.</p>
+    <div class="border-t border-white/10 pt-8 flex flex-col items-center gap-2 text-sm text-gray-500">
+      <p>&copy; {currentYear} GM Climatização. Todos os direitos reservados.</p>
+      <p>Site desenvolvido por <a href="https://orientme.com.br/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gold-400 transition-colors">OrientMe</a></p>
     </div>
   </div>
 </footer>
