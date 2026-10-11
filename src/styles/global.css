@@ -7,9 +7,9 @@
   --color-navy-900: #0f1b3d;
   --color-navy-700: #1a3a6e;
   --color-navy-500: #0f4fc9;
-  --color-orange-500: #ff7a1a;
-  --color-orange-400: #ffa64d;
-  --color-orange-600: #e06500;
+  --color-orange-500: #F5B731;
+  --color-orange-400: #F8CA5C;
+  --color-orange-600: #D49A1E;
   --color-surface: #f8f9fc;
   --color-whatsapp: #25D366;
 }
@@ -40,6 +40,53 @@
     opacity: 0;
   }
 }
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10%) translateX(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(25vh) translateX(25px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(50vh) translateX(-15px);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateY(75vh) translateX(20px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(110vh) translateX(-10px);
+    opacity: 0.2;
+  }
+}
+
+.snowflake {
+  position: absolute;
+  top: -20px;
+  color: white;
+  opacity: 0;
+  animation: snowfall linear infinite;
+}
+
+.snowflake:nth-child(1)  { left: 5%;  font-size: 22px; animation-duration: 8s;  animation-delay: 0s;   opacity: 0.5; }
+.snowflake:nth-child(2)  { left: 12%; font-size: 16px; animation-duration: 12s; animation-delay: 1s;   opacity: 0.35; }
+.snowflake:nth-child(3)  { left: 20%; font-size: 26px; animation-duration: 9s;  animation-delay: 3s;   opacity: 0.55; }
+.snowflake:nth-child(4)  { left: 30%; font-size: 18px; animation-duration: 11s; animation-delay: 0.5s; opacity: 0.4; }
+.snowflake:nth-child(5)  { left: 38%; font-size: 28px; animation-duration: 7s;  animation-delay: 2s;   opacity: 0.6; }
+.snowflake:nth-child(6)  { left: 48%; font-size: 15px; animation-duration: 13s; animation-delay: 4s;   opacity: 0.3; }
+.snowflake:nth-child(7)  { left: 55%; font-size: 22px; animation-duration: 10s; animation-delay: 1.5s; opacity: 0.45; }
+.snowflake:nth-child(8)  { left: 63%; font-size: 14px; animation-duration: 14s; animation-delay: 3.5s; opacity: 0.35; }
+.snowflake:nth-child(9)  { left: 72%; font-size: 20px; animation-duration: 8s;  animation-delay: 2.5s; opacity: 0.5; }
+.snowflake:nth-child(10) { left: 78%; font-size: 26px; animation-duration: 9s;  animation-delay: 0.8s; opacity: 0.55; }
+.snowflake:nth-child(11) { left: 84%; font-size: 16px; animation-duration: 12s; animation-delay: 5s;   opacity: 0.3; }
+.snowflake:nth-child(12) { left: 90%; font-size: 24px; animation-duration: 10s; animation-delay: 1.8s; opacity: 0.45; }
+.snowflake:nth-child(13) { left: 25%; font-size: 14px; animation-duration: 15s; animation-delay: 6s;   opacity: 0.3; }
+.snowflake:nth-child(14) { left: 45%; font-size: 20px; animation-duration: 11s; animation-delay: 4.5s; opacity: 0.4; }
+.snowflake:nth-child(15) { left: 95%; font-size: 17px; animation-duration: 13s; animation-delay: 2.2s; opacity: 0.35; }
 
 html {
   scroll-behavior: smooth;
