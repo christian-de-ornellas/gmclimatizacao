@@ -1,0 +1,55 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+const faqs = [
+  {
+    question: "De quanto em quanto tempo preciso fazer manutencao?",
+    answer: "Para residencias, a cada 6 meses. Para ambientes comerciais com uso intenso, a cada 3 meses. Ja a limpeza dos filtros deve ser mensal — e algo que voce mesmo pode fazer. A manutencao preventiva evita quebras inesperadas e mantem o consumo de energia no nivel projetado.",
+  },
+  {
+    question: "Como saber qual ar condicionado e o certo para o meu espaco?",
+    answer: "Nao existe resposta generica. Depende da metragem, pe-direito, quantidade de pessoas, orientacao solar, equipamentos eletronicos no ambiente e ate do tipo de revestimento das paredes. Fazemos esse calculo tecnicamente — e a consultoria inicial e gratuita.",
+  },
+  {
+    question: "Voces atendem em qual regiao?",
+    answer: "Toda a regiao metropolitana. Para localidades mais distantes, avaliamos caso a caso. Envie sua localizacao pelo WhatsApp e confirmamos a disponibilidade e agendamos a visita.",
+  },
+  {
+    question: "Quanto tempo leva uma instalacao de split?",
+    answer: "Em media, de 2 a 4 horas para uma instalacao padrao com infraestrutura pronta. Se for necessario passar tubulacao, dreno ou eletrica, pode levar um dia completo. Informamos o prazo exato no orcamento.",
+  },
+  {
+    question: "Qual e a garantia do servico?",
+    answer: "Emitimos termo de garantia para cada servico realizado. A instalacao possui garantia sobre a mao de obra, e o equipamento mantem a garantia de fabrica — desde que instalado por profissional autorizado, como e o nosso caso.",
+  },
+  {
+    question: "O que e PMOC e quando ele e obrigatorio?",
+    answer: "PMOC e o Plano de Manutencao, Operacao e Controle, exigido por lei (Portaria 3.523/98 e Resolucao ANVISA RE-09) para ambientes com sistemas de climatizacao acima de 5 TR. Sem ele, seu estabelecimento esta sujeito a multas, interdicoes e processos sanitarios.",
+  },
+];
+---
+
+<section id="faq" class="py-20 md:py-28 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeading
+      title="Duvidas frequentes"
+      subtitle="As perguntas que mais recebemos — respondidas com transparencia."
+    />
+
+    <div class="max-w-3xl mx-auto space-y-4">
+      {faqs.map((faq) => (
+        <details class="group bg-white rounded-2xl border border-gray-100 shadow-sm">
+          <summary class="flex items-center justify-between cursor-pointer p-6 font-heading font-semibold text-navy-900 hover:text-orange-500 transition-colors list-none [&::-webkit-details-marker]:hidden">
+            <span>{faq.question}</span>
+            <svg class="w-5 h-5 flex-shrink-0 ml-4 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

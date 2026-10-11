@@ -1,0 +1,56 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import TestimonialCard from "./TestimonialCard.astro";
+
+const testimonials = [
+  {
+    name: "Carlos Mendonca",
+    text: "Tive dois orcamentos antes da GM. Os outros queriam instalar um 12.000 BTUs na minha sala de 40m². A GM fez o calculo de carga termica e recomendou um 18.000. Diferenca absurda no conforto — e so eles explicaram o motivo.",
+    rating: 5,
+  },
+  {
+    name: "Ana Paula Soares",
+    text: "Gerencio uma clinica com 14 aparelhos. A GM assumiu o PMOC e a manutencao preventiva trimestral. Em oito meses, nenhuma parada nao programada. Antes, era uma dor de cabeca por mes.",
+    rating: 5,
+  },
+  {
+    name: "Roberto Lima",
+    text: "Precisei trocar todo o sistema VRF do escritorio em plena operacao. A equipe trabalhou em horario alternativo para nao parar nossas atividades. Entregaram no prazo combinado, sem um dia de atraso.",
+    rating: 5,
+  },
+  {
+    name: "Mariana Fonseca",
+    text: "Terceiro projeto com a GM — primeiro meu apartamento, depois o consultorio, agora a casa nova. Quando voce encontra um time que faz direito, nao tem por que trocar.",
+    rating: 5,
+  },
+  {
+    name: "Pedro Henrique Castro",
+    text: "Climatizaram meu escritorio de 120m² com multi split. A conta de luz ficou 30% menor que o sistema antigo de janela. O projeto se pagou em poucos meses.",
+    rating: 5,
+  },
+  {
+    name: "Lucia Ribeiro",
+    text: "O que mais me impressionou foi a organizacao. Recebemos um cronograma antes do inicio, fotos do progresso e uma vistoria final detalhada. Nao e o padrao que estamos acostumados no Brasil.",
+    rating: 5,
+  },
+];
+---
+
+<section id="depoimentos" class="py-20 md:py-28 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeading
+      title="Quem ja contratou, recomenda"
+      subtitle="Historias reais de clientes que confiaram no nosso trabalho."
+    />
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonials.map((t) => (
+        <TestimonialCard
+          name={t.name}
+          text={t.text}
+          rating={t.rating}
+        />
+      ))}
+    </div>
+  </div>
+</section>
